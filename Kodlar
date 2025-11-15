@@ -1,0 +1,8 @@
+SELECT kategoriler.category_name,urunler.list_price,urunler.model_year
+ from kategoriler
+INNER JOIN urunler ON kategoriler.category_id=urunler.category_id 
+where (urunler.list_price<
+(Select AVG(list_price) from urunler));
+
+SELECT * FROM urunler
+ORDER BY list_price;
